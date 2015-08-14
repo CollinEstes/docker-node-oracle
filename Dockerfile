@@ -1,5 +1,5 @@
 # INSTALL UBUNTU
-FROM node:latest
+FROM iojs:latest
 
 #INSTALL LIBAIO1 & UNZIP (NEEDED FOR STRONG-ORACLE)
 RUN apt-get update \

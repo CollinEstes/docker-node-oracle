@@ -31,6 +31,10 @@ or
 FROM node:{VERSION}
 ```
 
+### :latest
+
+Using "latest" as the version will use the latest iojs base image
+
 
 
 

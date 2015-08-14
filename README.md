@@ -18,7 +18,7 @@ FROM collinestes/docker-node-oracle:{VERSION}
 
 ## Versions
 
-Specify the Node.js/io.js version you would like to use in the above *{VERSION}*.  Check the different branches available on this repo to see available versions.
+Specify the Node.js/io.js version you would like to use in the above *{VERSION}*.  Check [the different branches available on this repo](https://github.com/CollinEstes/docker-node-oracle/branches) to see available versions.
 
 >If you would like to use a version that is currently not a branch of this repo, submit a PR with the updated Dockerfile with the edit too:
 

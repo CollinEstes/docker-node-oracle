@@ -1,4 +1,5 @@
-FROM node:4.4.0
+# INSTALL NODE BASE IMAGE (USING NODESOURCE WHEEZY FOR SIZE
+FROM nodesource/wheezy:4.4.0
 
 #INSTALL LIBAIO1 & UNZIP (NEEDED FOR STRONG-ORACLE)
 RUN apt-get update \
@@ -21,4 +22,4 @@ ENV OCI_HOME="/opt/oracle/instantclient"
 ENV OCI_LIB_DIR="/opt/oracle/instantclient"
 ENV OCI_INCLUDE_DIR="/opt/oracle/instantclient/sdk/include"
 
-RUN echo '/opt/oracle/instantclient/' | tee -a /etc/ld.so.conf.d/oracle_instant_client.conf && ldconfig-a /etc/ld.so.conf.d/oracle_instant_client.conf && ldconfig
+RUN echo '/opt/oracle/instantclient/' | tee -a /etc/ld.so.conf.d/oracle_instant_client.conf && ldconfig

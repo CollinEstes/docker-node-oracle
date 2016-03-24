@@ -1,5 +1,5 @@
 # INSTALL UBUNTU
-FROM nodesource/jessie:4.2.3
+FROM node:4.2.3
 
 #INSTALL LIBAIO1 & UNZIP (NEEDED FOR STRONG-ORACLE)
 RUN apt-get update \

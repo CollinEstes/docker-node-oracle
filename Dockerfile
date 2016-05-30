@@ -1,5 +1,10 @@
-# INSTALL UBUNTU
-FROM nodesource/jessie:0.12.7
+############################################################
+# Dockerfile to build Oracle Enabled NodeJS Containers
+# Based on NodeJS Version 0.10.36
+############################################################
+
+# Set the base image to NodeJS
+FROM node:0.10.36
 
 #INSTALL LIBAIO1 & UNZIP (NEEDED FOR STRONG-ORACLE)
 RUN apt-get update \
@@ -21,5 +26,6 @@ ENV LD_LIBRARY_PATH="/opt/oracle/instantclient"
 ENV OCI_HOME="/opt/oracle/instantclient"
 ENV OCI_LIB_DIR="/opt/oracle/instantclient"
 ENV OCI_INCLUDE_DIR="/opt/oracle/instantclient/sdk/include"
+ENV OCI_VERSION=12
 
 RUN echo '/opt/oracle/instantclient/' | tee -a /etc/ld.so.conf.d/oracle_instant_client.conf && ldconfig

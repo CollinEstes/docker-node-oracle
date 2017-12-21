@@ -1,6 +1,5 @@
 # docker-node-oracle
 
-
 Docker image to be used for building a container ready with Oracle instant client binaries and all necessary environment variables needed to use the primary Node.js Oracle Database driver libraries:
 
 [strong-oracle](https://github.com/strongloop/strong-oracle)  
@@ -28,4 +27,4 @@ FROM node:{VERSION}
 
 ### :latest
 
-Using "latest" (FROM collinestes/docker-node-oracle) as the version will use "FROM NODE:6" as it's base image.  It is recommended that you use a specific version (X.X.X) but if you only want the latest version of Node 6.X.X then latest will work.
+Using "latest" (FROM collinestes/docker-node-oracle) as the version will use "FROM NODE:8" as it's base image.  It is recommended that you use a specific version (X.X.X) but if you only want the latest version of Node 6.X.X then latest will work.

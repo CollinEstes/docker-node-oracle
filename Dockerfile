@@ -1,5 +1,5 @@
 # INSTALL UBUNTU
-FROM node:8-wheezy
+FROM node:8
 
 #INSTALL LIBAIO1 & UNZIP (NEEDED FOR STRONG-ORACLE)
 RUN apt-get update \
@@ -12,15 +12,14 @@ RUN apt-get update \
 RUN mkdir -p opt/oracle
 ADD ./oracle/linux/ .
 
-RUN unzip instantclient-basic-linux.x64-12.2.0.1.0.zip -d /opt/oracle \
- && unzip instantclient-sdk-linux.x64-12.2.0.1.0.zip -d /opt/oracle  \
- && mv /opt/oracle/instantclient_12_2 /opt/oracle/instantclient \
- && ln -s /opt/oracle/instantclient/libclntsh.so.12.2 /opt/oracle/instantclient/libclntsh.so \
- && ln -s /opt/oracle/instantclient/libocci.so.12.2 /opt/oracle/instantclient/libocci.so
+# 12.2
+RUN unzip instantclient-basic-linux.x64-12.2.0.1.0 -d /opt/oracle \
+ && mv /opt/oracle/instantclient_12_2 /opt/oracle/instantclient
+
+RUN cd /opt/oracle/instantclient \
+  && ln -s libclntsh.so.12.1 libclntsh.so \
+  && ln -s libocci.so.12.1 libocci.so 
+
+RUN echo /opt/oracle/instantclient > /etc/ld.so.conf.d/oracle-instantclient.conf
 
 ENV LD_LIBRARY_PATH="/opt/oracle/instantclient"
-ENV OCI_HOME="/opt/oracle/instantclient"
-ENV OCI_LIB_DIR="/opt/oracle/instantclient"
-ENV OCI_INCLUDE_DIR="/opt/oracle/instantclient/sdk/include"
-
-RUN echo '/opt/oracle/instantclient/' | tee -a /etc/ld.so.conf.d/oracle_instant_client.conf && ldconfig

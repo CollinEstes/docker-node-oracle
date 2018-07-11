@@ -31,7 +31,3 @@ ENV OCI_VERSION="12"
 ENV DYLD_LIBRARY_PATH="/opt/oracle/instantclient"
 
 RUN echo '/opt/oracle/instantclient/' | tee -a /etc/ld.so.conf.d/oracle_instant_client.conf && ldconfig
-RUN ldconfig -p | grep libocci
-# RUN ld -locci
-# RUN ld -lclntsh
-RUN mkdir /app && npm init --yes && npm install strong-oracle

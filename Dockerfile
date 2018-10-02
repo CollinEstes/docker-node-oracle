@@ -1,5 +1,5 @@
 # INSTALL UBUNTU
-FROM node:10-slim
+FROM node:10-stretch
 
 #INSTALL LIBAIO1 & UNZIP (NEEDED FOR STRONG-ORACLE)
 RUN apt-get update \
@@ -11,6 +11,7 @@ RUN apt-get update \
 #ADD ORACLE INSTANT CLIENT
 RUN mkdir -p opt/oracle
 ADD ./oracle/linux/ .
+
 
 RUN unzip instantclient-basic-linux.x64-12.2.0.1.0.zip -d /opt/oracle \
  && unzip instantclient-sdk-linux.x64-12.2.0.1.0.zip -d /opt/oracle  \

@@ -3,10 +3,7 @@ FROM node:10-slim
 
 #INSTALL LIBAIO1 & UNZIP (NEEDED FOR STRONG-ORACLE)
 RUN apt-get update \
- && apt-get install -y libaio1 \
- && apt-get install -y build-essential \
- && apt-get install -y unzip \
- && apt-get install -y curl
+ && apt-get install -y unzip 
 
 #ADD ORACLE INSTANT CLIENT
 RUN mkdir -p opt/oracle
